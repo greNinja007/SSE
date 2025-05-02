@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SSE SMART MANAGER - Login</title>
+    <link rel="stylesheet" href="css/login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="screen">
+        <div class="screen__content">
+          <form class="login" id="loginForm">
+            <div class="logo-header">
+              <h1>SSE SMART MANAGER</h1>
+            </div>
+
+            <div
+              id="errorMessage"
+              class="error-message"
+              style="display: none"
+            ></div>
+
+            <div class="login__field">
+              <i class="login__icon fas fa-user"></i>
+              <input
+                type="text"
+                class="login__input"
+                placeholder="User ID / Phone Number"
+                id="userIDInput"
+                name="username"
+                maxlength="10"
+                pattern="[0-9]{10}"
+                title="Please enter a 10-digit phone number"
+                required
+              />
+            </div>
+            <div class="login__field">
+              <i class="login__icon fas fa-lock"></i>
+              <input
+                type="password"
+                class="login__input"
+                placeholder="Password"
+                id="passwordInput"
+                name="password"
+                required
+                minlength="4"
+              />
+              <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+            </div>
+            <button type="submit" class="button login__submit">
+              <span class="button__text">Log In</span>
+              <i class="button__icon fas fa-chevron-right"></i>
+            </button>
+          </form>
+        </div>
+        <div class="screen__background">
+          <span
+            class="screen__background__shape screen__background__shape4"
+          ></span>
+          <span
+            class="screen__background__shape screen__background__shape3"
+          ></span>
+          <span
+            class="screen__background__shape screen__background__shape2"
+          ></span>
+          <span
+            class="screen__background__shape screen__background__shape1"
+          ></span>
+        </div>
+      </div>
+    </div>
+    <script src="js/login.js"></script>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSE SMART MANAGER - Manage Checklist</title>
+  <link rel="stylesheet" href="css/manage_checklist.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="page-header">
+      <button id="back-btn" class="back-btn" aria-label="Go back">
+        <i class="fas fa-arrow-left" aria-hidden="true"></i> Back
+      </button>
+      <h1 class="page-title">Manage Checklist</h1>
+    </header>
+
+    <main class="content-wrapper">
+      <section class="form-section">
+        <form id="db-form" class="database-form">
+          <h2 class="form-title">Add/Edit Checklist Index</h2>
+          <div id="form-error" class="error-message" style="display: none" role="alert"></div>
+
+          <div class="form-group">
+            <label for="site_name">Site Name:</label>
+            <input type="text" id="site_name" name="site_name" required aria-required="true" />
+          </div>
+
+          <div class="form-group">
+            <label for="system_name">System Name:</label>
+            <input type="text" id="system_name" name="system_name" required aria-required="true" />
+          </div>
+          
+          <div class="form-group">
+            <label for="po_no">P.O. No.:</label>
+            <input type="text" id="po_no" name="po_no" required aria-required="true" />
+          </div>
+
+          <div id="headers-container" class="form-group">
+            <label>Checklist Headers:</label>
+            <div class="table-responsive">
+              <table id="headerTable" class="headers-table" aria-label="Checklist headers configuration">
+                <thead>
+                  <tr>
+                    <th scope="col">Header Name</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="headers-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <span id="submit-text">Save</span>
+            <span id="submit-spinner" class="loading-spinner" style="display: none" aria-hidden="true"></span>
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <!-- Floating Action Button -->
+    <div class="fab-container">
+      <button class="fab-btn" id="show-db-btn" title="View Database" aria-label="View database">
+        <i class="fas fa-database" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <!-- Database Modal -->
+    <div id="db-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-content" onclick="event.stopPropagation()">
+        <div class="modal-header">
+          <h2 id="modal-title">Checklist Database</h2>
+          <button class="close-btn" id="close-db-btn" aria-label="Close modal">
+            &times;
+          </button>
+        </div>
+        <div class="search-container">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search by Site_name"
+            aria-label="Search checklists"
+          />
+          <button id="search-icon" class="search-btn" aria-label="Search">
+            <i class="fas fa-search" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="table-container">
+          <table id="database-table" class="database-table" aria-label="Checklist database">
+            <thead>
+              <tr>
+                <th scope="col">Site Name</th>
+                <th scope="col">System Name</th>
+                <th scope="col">P.O. No.</th>
+                <th scope="col">Linked Checklist</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="database-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/manage_checklist.js" type="module"></script>
+</body>
+</html>
